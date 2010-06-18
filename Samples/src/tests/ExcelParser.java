@@ -28,6 +28,7 @@ public class ExcelParser {
 		    int numOfRows = sheet.getPhysicalNumberOfRows();
 		    double totalPrice = 0;
 		    
+		    //sum of prices
 		    for (int i=1; i < numOfRows; i++){
 		    	row = sheet.getRow(i);
 			    cell = row.getCell(1);
