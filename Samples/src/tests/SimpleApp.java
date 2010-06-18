@@ -53,16 +53,16 @@ public class SimpleApp implements ActionListener {
 				HSSFRow row;
 				HSSFCell cell;
 				int numOfRows = sheet.getPhysicalNumberOfRows();
-				double totalPrice = 0;
+				double totalExpense = 0;
 
 				// sum of prices
 				for (int i = 1; i < numOfRows; i++) {
 					row = sheet.getRow(i);
 					cell = row.getCell(2);
-					totalPrice += cell.getNumericCellValue();
+					totalExpense += cell.getNumericCellValue();
 				}
 
-				System.out.println("Total price: " + totalPrice);
+				System.out.println("Total expense: " + totalExpense);
 				// create piechart report
 				DefaultPieDataset dataset = new DefaultPieDataset();
 				dataset.setValue("Item A", new Integer(100));
