@@ -25,7 +25,7 @@ import org.jfree.data.general.DefaultPieDataset;
 
 public class SimpleApp implements ActionListener{
 	JFileChooser fileChooser;
-	JFrame frame = new JFrame("HelloWorldSwing");
+	JFrame frame = new JFrame("GEXMS");
 
 	public void createAndShowGUI() {
         //Create and set up the window.
@@ -35,8 +35,8 @@ public class SimpleApp implements ActionListener{
 
 
         //Add the ubiquitous "Hello World" label.
-        JLabel label = new JLabel("Hello World");
-        frame.getContentPane().add(label); 
+        //JLabel label = new JLabel("GEXMS");
+        //frame.getContentPane().add(label); 
         JButton browseButton = new JButton("Browse...");        
         fileChooser = new JFileChooser();
         fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
@@ -62,7 +62,7 @@ public class SimpleApp implements ActionListener{
     		    //sum of prices
     		    for (int i=1; i < numOfRows; i++){
     		    	row = sheet.getRow(i);
-    			    cell = row.getCell(1);
+    			    cell = row.getCell(2);
     			    totalPrice += cell.getNumericCellValue();			    	
     		    }		    
     		    
