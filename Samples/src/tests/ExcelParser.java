@@ -43,7 +43,7 @@ public class ExcelParser {
 		    dataset.setValue("Item C", new Integer(50));
 		    dataset.setValue("Item D", new Integer(75));
 		    dataset.setValue("Item E", new Integer(150));		    
-		    JFreeChart chart = ChartFactory.createPieChart3D("Expenses chart", dataset, true, false, Locale.ENGLISH);
+		    JFreeChart chart = ChartFactory.createPieChart3D("Expenses chart", dataset, true, true, Locale.ENGLISH);
 		    ChartUtilities.saveChartAsPNG(new File("c:\\cme\\chart.png"), chart, 500, 500);
 		} 
 		catch (FileNotFoundException e) {

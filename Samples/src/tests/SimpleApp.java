@@ -1,5 +1,7 @@
 package tests;
 
+import java.awt.Container;
+import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -8,7 +10,9 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Locale;
 
+import javax.swing.ComboBoxModel;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 
@@ -35,8 +39,30 @@ public class SimpleApp implements ActionListener {
 		JButton browseButton = new JButton("Browse...");
 		fileChooser = new JFileChooser();
 		fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
-		frame.getContentPane().add(browseButton);
+		//frame.getContentPane().add(browseButton);
 		browseButton.addActionListener(this);
+		JComboBox monthComboBox= new JComboBox();
+		monthComboBox.setEditable(true);	
+		
+		String[] monthList = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
+		
+		for (int i =0; i < monthList.length; i++)
+		monthComboBox.addItem(monthList[i]);		
+		
+		Container container = frame.getContentPane();
+		container.setLayout(new FlowLayout());
+		container.add(browseButton);
+		container.add(monthComboBox);
+		
+		JComboBox.KeySelectionManager manager =
+		      new JComboBox.KeySelectionManager() {
+		        public int selectionForKey(char aKey, ComboBoxModel aModel) {
+		          System.out.println(aKey);
+		          return -1;
+		        }
+		      };
+		monthComboBox.setKeySelectionManager(manager);
+		
 		// Display the window.
 		frame.pack();
 		frame.setVisible(true);
