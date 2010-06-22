@@ -49,12 +49,20 @@ public class SimpleApp implements ActionListener {
 		for (int i =0; i < monthList.length; i++)
 		monthComboBox.addItem(monthList[i]);		
 		
+		JComboBox yearComboBox= new JComboBox();
+		String[] yearList = {"2010", "2011", "2012", "2013", "2014", "2015"};
+		
+		for (int i =0; i < yearList.length; i++)
+			yearComboBox.addItem(yearList[i]);		
+			
+			
 		Container container = frame.getContentPane();
 		container.setLayout(new FlowLayout());
 		container.add(browseButton);
 		container.add(monthComboBox);
+		container.add(yearComboBox);
 		
-		JComboBox.KeySelectionManager manager =
+		/*JComboBox.KeySelectionManager manager =
 		      new JComboBox.KeySelectionManager() {
 		        public int selectionForKey(char aKey, ComboBoxModel aModel) {
 		          System.out.println(aKey);
@@ -62,7 +70,7 @@ public class SimpleApp implements ActionListener {
 		        }
 		      };
 		monthComboBox.setKeySelectionManager(manager);
-		
+		*/
 		// Display the window.
 		frame.pack();
 		frame.setVisible(true);
