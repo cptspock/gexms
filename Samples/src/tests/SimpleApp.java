@@ -41,9 +41,8 @@ public class SimpleApp implements ActionListener {
 		//frame.getContentPane().add(browseButton);
 		browseButton.addActionListener(this);
 		JComboBox monthComboBox= new JComboBox();
-		monthComboBox.setEditable(true);	
-		
-//		String[] monthList = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
+		monthComboBox.setEditable(true);		
+
 		String[] monthList = getMonthStrings();
 		
 		for (int i =0; i < monthList.length; i++)
