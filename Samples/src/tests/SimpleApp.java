@@ -43,7 +43,8 @@ public class SimpleApp implements ActionListener {
 		JComboBox monthComboBox= new JComboBox();
 		monthComboBox.setEditable(true);	
 		
-		String[] monthList = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
+//		String[] monthList = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
+		String[] monthList = getMonthStrings();
 		
 		for (int i =0; i < monthList.length; i++)
 		monthComboBox.addItem(monthList[i]);		
@@ -124,4 +125,24 @@ public class SimpleApp implements ActionListener {
 			}
 		});
 	}
+	
+	/**
+     * DateFormatSymbols returns an extra, empty value at the
+     * end of the array of months.  Remove it.
+     */
+    static protected String[] getMonthStrings() {
+        String[] months = new java.text.DateFormatSymbols().getMonths();
+        int lastIndex = months.length - 1;
+
+        if (months[lastIndex] == null
+           || months[lastIndex].length() <= 0) { //last item empty
+            String[] monthStrings = new String[lastIndex];
+            System.arraycopy(months, 0,
+                             monthStrings, 0, lastIndex);
+            return monthStrings;
+        } else { //last item not empty
+            return months;
+        }
+    }
+
 }
