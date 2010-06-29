@@ -2,11 +2,11 @@ package tests;
 
 /* Java does manipulate objects by reference, and all object variables are references. However, Java 
  doesn't pass method arguments by reference; it passes them by value.
- 
+
  Java copies and passes the reference by value, not the object. Thus, method manipulation will alter 
  the objects, since the references point to the original objects. But since the references are copies, 
  swaps will fail. 
- 
+
  As Figure 2 illustrates, the method references swap, but not the original references. 
  Unfortunately, after a method call, you are left with only the unswapped original references. 
  For a swap to succeed outside of the method call, we need to swap the original references, not the copies.
@@ -51,5 +51,4 @@ public class PassByReference {
 class Point {
 	int x;
 	int y;
-
 }
