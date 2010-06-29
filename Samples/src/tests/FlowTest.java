@@ -22,8 +22,8 @@ public class FlowTest extends ParentFlow {
 		String b = "Marillion";
 
 		System.out.println(a.equals(b)); // will be true since content is same
-		System.out.println(a == b); // will be true again since for strings with
-									// same value will be referenced to only ONE object
+		System.out.println(a == b);      // will be true again since strings with
+									     // same value will be referenced by only ONE object
 		if (a == b)
 			System.out.println("Yes"); // will be true since content is same
 
