@@ -5,7 +5,7 @@ public class StringReversal {
         if ((null == str) || (str.length() <= 1)) {
             return str;
         }
-        System.out.println(str);
+        //System.out.println(str);
         return reverse(str.substring(1)) + str.charAt(0);
     }
 	
