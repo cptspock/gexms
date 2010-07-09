@@ -16,7 +16,7 @@ public class FlowTest extends ParentFlow {
 	}
 
 	public static void main(String args[]) {
-		FlowTest ft = new FlowTest();
+		new FlowTest();
 
 		String a = "Marillion";
 		String b = "Marillion";
