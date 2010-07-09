@@ -8,6 +8,10 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Locale;
 
 import javax.swing.JButton;
@@ -70,6 +74,8 @@ public class SimpleApp implements ActionListener {
 		      };
 		monthComboBox.setKeySelectionManager(manager);
 		*/
+		
+		
 		// Display the window.
 		frame.pack();
 		frame.setVisible(true);
@@ -123,6 +129,19 @@ public class SimpleApp implements ActionListener {
 				new SimpleApp().createAndShowGUI();
 			}
 		});
+		
+	/*	Calendar cal = new Calendar();
+		String DATE_FORMAT = "yyyy-MM-dd";
+		SimpleDateFormat format = new SimpleDateFormat(DATE_FORMAT);
+		Date date = null;
+		try {
+			date = format.parse("06/10/10");
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println(format.format(date));*/
+		
 	}
 	
 	/**
@@ -130,7 +149,7 @@ public class SimpleApp implements ActionListener {
      * end of the array of months.  Remove it.
      */
     static protected String[] getMonthStrings() {
-        String[] months = new java.text.DateFormatSymbols().getMonths();
+        String[] months = new java.text.DateFormatSymbols().getShortMonths();
         int lastIndex = months.length - 1;
 
         if (months[lastIndex] == null
