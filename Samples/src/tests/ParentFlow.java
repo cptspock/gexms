@@ -5,7 +5,8 @@ public class ParentFlow {
 	int flowVar = 10;
 	
 	static{
-		System.out.println("Parent static block");
+		int st1 = 100;
+		System.out.println("Parent static block, value of st1=" + st1);
 	}
 	
 	public ParentFlow(){
