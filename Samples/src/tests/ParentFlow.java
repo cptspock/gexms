@@ -2,7 +2,7 @@ package tests;
 
 public class ParentFlow {
 
-	int flowVar = 10;
+	static int flowVar = 10;
 	
 	static{
 		int st1 = 100;

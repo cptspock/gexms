@@ -2,6 +2,7 @@ package tests;
 
 public class FlowTest extends ParentFlow {
 
+	public static int globalVar = 10;
 	static {
 		System.out.println("FlowTest static block");
 	}
