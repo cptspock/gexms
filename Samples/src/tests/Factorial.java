@@ -23,7 +23,9 @@ public class Factorial {
 			//StackTraceElement[] peas = p.getStackTrace();
 			System.out.println("Error: Factorial of negative is invalid operation");
 		}
-				
+		
+		// to demonstrate that if u catch an exception, execution of the program continues 
+		System.out.println("proceeding after exception");		
 	}
 
 }
