@@ -43,7 +43,5 @@ public class FlowTest extends ParentFlow {
 		c = d;
 		System.out.println(c.equals(d));
 		System.out.println(c == d);
-
 	}
-
 }
