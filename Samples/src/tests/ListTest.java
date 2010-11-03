@@ -10,11 +10,10 @@ public class ListTest {
 		List<Integer> newList = new ArrayList<Integer>();
 		newList.add(new Integer(100));
 		newList.add(new Integer(10));
-		Collections.reverse(newList);
-		
+		newList.add(new Integer(50));
+		Collections.reverse(newList);		
 		for (Integer i : newList){
 			System.out.println(i);
 		}
 	}
-
 }

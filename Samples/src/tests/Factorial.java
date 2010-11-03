@@ -12,7 +12,7 @@ public class Factorial {
 			return n * factorial(n - 1);
 	}
 
-	public double caller(int n) throws IllegalArgumentException {
+	public double caller(int n) {
 		return factorial(n);
 	}
 
@@ -23,6 +23,7 @@ public class Factorial {
 			// p.printStackTrace();
 			// StackTraceElement[] peas = p.getStackTrace();
 			iae.printStackTrace();
+			System.out.println("Factorial will not be calculated");
 		}
 
 		// to demonstrate that if u catch an exception, execution of the program
