@@ -22,13 +22,15 @@ public class PassByReference {
 		 * Point temp = arg1; arg1 = arg2; arg2 = temp;
 		 */
 		Point temp = new Point();
-		temp.x = arg1.x;
+		/*temp.x = arg1.x;
 		temp.y = arg1.y;
 		arg1.x = arg2.x;
 		arg1.y = arg2.y;
 
 		arg2.x = temp.x;
-		arg2.y = temp.y;
+		arg2.y = temp.y;*/
+		
+
 	}
 
 	public static void main(String[] args) {
@@ -44,7 +46,6 @@ public class PassByReference {
 		p.swap(p1, p2);
 		System.out.println("p1.x= " + p1.x + "   p1.y= " + p1.y);
 		System.out.println("p2.x= " + p2.x + "   p2.y= " + p2.y);
-
 	}
 }
 
