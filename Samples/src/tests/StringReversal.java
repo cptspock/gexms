@@ -2,7 +2,7 @@ package tests;
 
 public class StringReversal {
 	public String reverse(String str) {
-        if ((null == str)) throw new IllegalArgumentException("invalid argument: use another argument");        	
+        if (null == str) throw new IllegalArgumentException("invalid argument: use another argument");        	
         	
         if (str.length() <= 1) {
             return str;
