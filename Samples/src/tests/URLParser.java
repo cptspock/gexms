@@ -5,7 +5,10 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 import java.util.StringTokenizer;
 
 public class URLParser {
@@ -65,23 +68,27 @@ public class URLParser {
 		return itemIdList;
 	}
 
-	private String getQuestId(String itemId) throws IOException {
+	private Map<String,String> getItemSlotQuestId(String itemId) throws IOException {
 		URL itemStream = new URL("http://cata.wowhead.com/item=" + itemId);
 		BufferedReader in2 = new BufferedReader(new InputStreamReader(
 				itemStream.openStream()));
 		String inputLine;
 		String questId = "";
+		Map<String, String> slotQuestIdMap = new HashMap<String, String>();
 		while ((inputLine = in2.readLine()) != null) {
 			if (inputLine.contains("/quest")) {
 				String questLine[] = inputLine.split("\\/quest=");
 				String[] questIdLine = questLine[1].split("&quot;");
 				questId = questIdLine[0];
-			} else
-				continue;
+			}
+			if (inputLine.contains("meta name=\"description\"")){
+				String itemSlot[] = inputLine.split("&quot;");
+				slotQuestIdMap.put(itemSlot[1],questId);
+			}
 		}
 		in2.close();
 
-		return questId;
+		return slotQuestIdMap;
 
 	}
 
@@ -90,16 +97,24 @@ public class URLParser {
 		StringBuffer finalString = new StringBuffer();
 		List<String> itemIdList = getItemIdList(itemLevel, armorType, role, PvP);
 		int i = 1;
-		String questId;
+		Map<String,String> questIdSlotMap;
+		Set<Map.Entry<String, String>> set;
+		String itemSlot=null,questId=null;
 		for (String itemId : itemIdList) {
 			StringBuffer temp = new StringBuffer(
 					"<a href=\"http://cata.wowhead.com/item=");
 			temp.append(itemId);
 			temp.append("\">");
-			temp.append("item" + i++);
+			questIdSlotMap = getItemSlotQuestId(itemId);
+			set = questIdSlotMap.entrySet();
+			 for (Map.Entry<String, String> me : set) {
+			      itemSlot = me.getKey();
+			      questId = me.getValue();
+			 }			 
+			temp.append(itemSlot);
 			temp.append("</a>: ");
 			temp.append("<a href=\"http://cata.wowhead.com/quest=");
-			questId = getQuestId(itemId);
+			
 			temp.append(questId);
 			temp.append("\">");
 			if (!questId.isEmpty())
