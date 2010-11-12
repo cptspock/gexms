@@ -18,9 +18,9 @@ public class URLParser {
 	 */
 	public static void main(String[] args) throws Exception {
 		URLParser p = new URLParser();
-		p.constructGearList(272, "Plate", "", false);
-		// p.constructGearList(272, "Mail", "Heal", false);
-		// p.constructGearList(272, "Mail", "Physical", false);
+		//p.constructGearList(272, "Plate", "Melee", false);
+		 //p.constructGearList(272, "Mail", "Heal", false);
+		p.constructGearList(272, "Mail", "Physical", false);
 
 	}
 
@@ -37,15 +37,27 @@ public class URLParser {
 				if ((inputLine.contains(armorType))
 						&& (!inputLine.contains("Tank"))
 						&& (!inputLine.contains("PvP") && (!inputLine
-								.contains("Spell")))
-						&& (inputLine.contains((new Integer(itemLevel))
-								.toString()))) {
+								.contains("Spell")) 
+						&& (inputLine.contains((new Integer(itemLevel)).toString()))) 
+						) {
 					String inputLines[] = inputLine
 							.split("db\\.mmo-champion\\.com\\/i\\/");
 					String something = inputLines[1];
 					String itemLine[] = something.split("\\/");
 					itemIdList.add(itemLine[0]);
 				}
+				if ( (inputLine.contains("Physical")) && (inputLine.contains((new Integer(itemLevel)).toString())) && ((inputLine.contains("Cloak")) || (inputLine.contains("Finger")) ||
+						(inputLine.contains("Trinket")) || (inputLine.contains("Neck")))
+						){
+					String inputLines2[] = inputLine
+					.split("db\\.mmo-champion\\.com\\/i\\/");
+			        String something2 = inputLines2[1];
+			        String itemLine2[] = something2.split("\\/");
+			        itemIdList.add(itemLine2[0]);
+				}
+					
+				
+				
 			}
 		} else if (role.equalsIgnoreCase("Heal")) {
 			while ((inputLine = in.readLine()) != null) {
@@ -62,9 +74,7 @@ public class URLParser {
 				}
 			}
 		}
-
 		in.close();
-
 		return itemIdList;
 	}
 
@@ -74,6 +84,7 @@ public class URLParser {
 				itemStream.openStream()));
 		String inputLine;
 		String questId = "";
+		String itemSlot = "";
 		Map<String, String> slotQuestIdMap = new HashMap<String, String>();
 		while ((inputLine = in2.readLine()) != null) {
 			if (inputLine.contains("/quest")) {
@@ -82,12 +93,12 @@ public class URLParser {
 				questId = questIdLine[0];
 			}
 			if (inputLine.contains("meta name=\"description\"")){
-				String itemSlot[] = inputLine.split("&quot;");
-				slotQuestIdMap.put(itemSlot[1],questId);
+				String itemSlotLine[] = inputLine.split("&quot;");
+				itemSlot = itemSlotLine[1];
 			}
 		}
+		slotQuestIdMap.put(itemSlot, questId);
 		in2.close();
-
 		return slotQuestIdMap;
 
 	}
@@ -96,7 +107,6 @@ public class URLParser {
 			String role, boolean PvP) throws IOException {
 		StringBuffer finalString = new StringBuffer();
 		List<String> itemIdList = getItemIdList(itemLevel, armorType, role, PvP);
-		int i = 1;
 		Map<String,String> questIdSlotMap;
 		Set<Map.Entry<String, String>> set;
 		String itemSlot=null,questId=null;
