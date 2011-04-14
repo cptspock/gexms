@@ -18,7 +18,5 @@ public class OuterClass {
 	public static void main(String[] args) {
 		OuterClass outerObject = new OuterClass(); 
 		OuterClass.NestedClass nestedClass = outerObject.new NestedClass();
-
 	}
-
 }
