@@ -7,7 +7,7 @@ public class NutritionFacts {
 	private final int calories;
 	private final int fat;
 	
-	public static class Builder{
+	static class Builder{
 		private final int servingSize;
 		private final int servings;
 		
@@ -15,6 +15,7 @@ public class NutritionFacts {
 		private int fat = 0;
 		
 		public Builder(int servingSize, int servings){
+			System.out.println("Builder constructor executed");
 			this.servingSize = servingSize;
 			this.servings = servings;			
 		}
@@ -30,20 +31,20 @@ public class NutritionFacts {
 		}
 		
 		public NutritionFacts build(){
+			System.out.println("build() method executed");
 			return new NutritionFacts(this);
 		}
 	}
 	
 	public NutritionFacts(Builder builder){
+		System.out.println("NutritionFacts constructor executed");
 		servingSize = builder.servingSize;
 		servings = builder.servings;
 		calories = builder.calories;
 		fat = builder.fat;
 		
 	}
-	public static void main(String[] args) {
+	public static void main(String[] args) {	
 		NutritionFacts something = new NutritionFacts.Builder(10, 2).build();
-
 	}
-
 }
