@@ -8,9 +8,11 @@ public class NutritionFacts {
 	private final int fat;
 	
 	static class Builder{
+		//required params
 		private final int servingSize;
 		private final int servings;
 		
+		// optional params
 		private int calories = 0;
 		private int fat = 0;
 		
@@ -41,10 +43,11 @@ public class NutritionFacts {
 		servingSize = builder.servingSize;
 		servings = builder.servings;
 		calories = builder.calories;
-		fat = builder.fat;
-		
+		fat = builder.fat;		
 	}
+	
 	public static void main(String[] args) {	
-		NutritionFacts something = new NutritionFacts.Builder(10, 2).build();
+		NutritionFacts something = new NutritionFacts.Builder(10, 2).fat(3).build(); // note how calories is optional since we're not setting its value
+		System.out.println(something.fat);
 	}
 }
