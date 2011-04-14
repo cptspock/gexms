@@ -1,5 +1,11 @@
 package tests;
 
+/**
+ * builder pattern 
+ * NutritionFacts is immutable
+ * 
+ *
+ */
 public class NutritionFacts {
 
 	private final int servingSize;
