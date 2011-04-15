@@ -26,7 +26,10 @@ public enum Elvis {
 		// TODO Auto-generated method stub
 		Elvis.INSTANCE.setAge(10);
 		System.out.println(Elvis.INSTANCE.getAge());
+		Elvis.INSTANCE.setAge(20);
+		System.out.println(Elvis.INSTANCE.getAge());
 
+		
 	}
 
 }
