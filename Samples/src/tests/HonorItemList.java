@@ -17,11 +17,11 @@ public class HonorItemList {
 	
 	public void getItemList() throws IOException{
 		//URL stream = new URL("http://www.wowhead.com/items?filter=na=vicious+gladiator+plate;minle=371;maxle=371");
-		URL stream = new URL("http://www.wowhead.com/item=70255");
+		//URL stream = new URL("http://www.wowhead.com/item=70255");
 		//URL stream = new URL("http://www.wowhead.com/search?q=bloodthirsty+pyrium");
-		BufferedReader in = new BufferedReader(new InputStreamReader(stream
+		/*BufferedReader in = new BufferedReader(new InputStreamReader(stream
 				.openStream()));
-		/*String inputLine;		
+		String inputLine;		
 		while ((inputLine = in.readLine()) != null) {
 			System.out.println(inputLine);
 		}*/
