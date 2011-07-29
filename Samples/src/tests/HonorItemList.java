@@ -21,11 +21,10 @@ public class HonorItemList {
 		//URL stream = new URL("http://www.wowhead.com/search?q=bloodthirsty+pyrium");
 		BufferedReader in = new BufferedReader(new InputStreamReader(stream
 				.openStream()));
-		String inputLine;
-		//List<String> itemIdList = new ArrayList<String>();
+		/*String inputLine;		
 		while ((inputLine = in.readLine()) != null) {
-			//System.out.println(inputLine);
-		}
+			System.out.println(inputLine);
+		}*/
 		for (String itemId : itemIdList){
 			System.out.println("Cost of  " +itemId + "=" +getItemCost(itemId));
 		}
