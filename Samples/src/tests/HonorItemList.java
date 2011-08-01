@@ -41,10 +41,12 @@ public class HonorItemList {
 				String amountLine[] = inputLine.split("amount=");				
 				String[] costLine = amountLine[1].split("\\]\\[");
 				itemCost = costLine[0];
+				return itemCost;
 			}
 			//System.out.println(inputLine);
 		}
-		return itemCost;
+		return "costNotFound";
+		
 	}
 	
 	public static void main(String[] args) throws IOException {
