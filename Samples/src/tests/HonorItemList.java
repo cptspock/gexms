@@ -7,7 +7,8 @@ import java.net.URL;
 
 public class HonorItemList {
 
-	String[] itemIdList = {"70623","70624","70625","70626","70627","70256","70255","70254","70253","70252"};
+	//String[] itemIdList = {"70623","70624","70625","70626","70627","70256","70255","70254","70253","70252"};
+	String[] itemIdList = {"70573","70574","70513","70514","70667","70668","70538","70539"};
 	/**
 	 * @param args
 	 * @throws IOException 
@@ -16,18 +17,18 @@ public class HonorItemList {
 	
 	
 	public void getItemList() throws IOException{
-		//URL stream = new URL("http://www.wowhead.com/items?filter=na=vicious+gladiator+plate;minle=371;maxle=371");
-		//URL stream = new URL("http://www.wowhead.com/item=70255");
+		//URL stream = new URL("http://www.wowhead.com/items?filter=na=vicious+gladiator;minle=371;ub=1");
+		URL stream = new URL("http://www.wowhead.com/item=70514");
 		//URL stream = new URL("http://www.wowhead.com/search?q=bloodthirsty+pyrium");
-		/*BufferedReader in = new BufferedReader(new InputStreamReader(stream
+		BufferedReader in = new BufferedReader(new InputStreamReader(stream
 				.openStream()));
 		String inputLine;		
 		while ((inputLine = in.readLine()) != null) {
 			System.out.println(inputLine);
-		}*/
-		for (String itemId : itemIdList){
-			System.out.println("Cost of  " +itemId + "=" +getItemCost(itemId));
 		}
+		/*for (String itemId : itemIdList){
+			System.out.println("Cost of  " +itemId + "=" +getItemCost(itemId));
+		}*/
 
 	}
 	
