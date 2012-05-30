@@ -21,9 +21,9 @@ public enum Elvis {
 	
 	// this needs to be added for normal singleton to prevent instances from deserialization from having a different instance of the singleton.
 	// not required for enum singleton. just added to show it is done.
-	private Object readResolve(){
+	/*private Object readResolve(){
 		return INSTANCE;
-	}
+	}*/
 
 	/**
 	 * @param args

@@ -8,7 +8,8 @@ import java.net.URL;
 public class HonorItemList {
 
 	//String[] itemIdList = {"70623","70624","70625","70626","70627","70256","70255","70254","70253","70252"};
-	String[] itemIdList = {"70573","70574","70513","70514","70667","70668","70538","70539"};
+	//String[] itemIdList = {"70573","70574","70513","70514","70667","70668","70538","70539"};
+	String[] itemIdList = {"70630","70045"};
 	/**
 	 * @param args
 	 * @throws IOException 
@@ -17,9 +18,9 @@ public class HonorItemList {
 	
 	
 	public void getItemList() throws IOException{
-		//URL stream = new URL("http://www.wowhead.com/items?filter=na=vicious+gladiator;minle=371;ub=1");
-		URL stream = new URL("http://www.wowhead.com/item=70514");
-		//URL stream = new URL("http://www.wowhead.com/search?q=bloodthirsty+pyrium");
+		//URL stream = new URL("http://www.wowhead.com/npc=40336#comments");
+		//URL stream = new URL("http://www.wowhead.com/item=70633");
+		URL stream = new URL("http://mop.wowhead.com/spells=7.1");
 		BufferedReader in = new BufferedReader(new InputStreamReader(stream
 				.openStream()));
 		String inputLine;		
@@ -44,7 +45,7 @@ public class HonorItemList {
 				itemCost = costLine[0];
 				return itemCost;
 			}
-			//System.out.println(inputLine);
+			System.out.println(inputLine);
 		}
 		return "costNotFound";
 		
