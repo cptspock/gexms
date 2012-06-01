@@ -20,7 +20,7 @@ public class HonorItemList {
 	public void getItemList() throws IOException{
 		//URL stream = new URL("http://www.wowhead.com/npc=40336#comments");
 		//URL stream = new URL("http://www.wowhead.com/item=70633");
-		URL stream = new URL("http://mop.wowhead.com/spells=7.1");
+		URL stream = new URL("http://mop.wowhead.com/spell=78");
 		BufferedReader in = new BufferedReader(new InputStreamReader(stream
 				.openStream()));
 		String inputLine;		
