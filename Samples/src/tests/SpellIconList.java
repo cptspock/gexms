@@ -15,8 +15,8 @@ public class SpellIconList {
 	 */
 
 	private void getIconList() throws IOException {
-		//URL stream = new URL("http://mop.wowhead.com/spells=7.1"); //main spells
-		URL stream = new URL("http://mop.wowhead.com/spells=-12.11"); //spec spells
+		URL stream = new URL("http://mop.wowhead.com/spells=7.1"); //main spells
+		//URL stream = new URL("http://mop.wowhead.com/spells=-12.11"); //spec spells
 		
 		BufferedReader in = new BufferedReader(new InputStreamReader(
 				stream.openStream()));
