@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
+import java.sql.SQLException;
+
 import tests.SpellDetails;
 
 public class SpellIconList {
@@ -12,10 +14,12 @@ public class SpellIconList {
 	 * @param args
 	 * @return
 	 * @throws IOException
+	 * @throws SQLException 
+	 * @throws ClassNotFoundException 
 	 */
 
-	private void getIconList() throws IOException {
-		URL stream = new URL("http://mop.wowhead.com/spells=7.1"); //main spells
+	private void getIconList() throws IOException, ClassNotFoundException, SQLException {
+		URL stream = new URL("http://mop.wowhead.com/spells=7.2"); //main spells
 		//URL stream = new URL("http://mop.wowhead.com/spells=-12.11"); //spec spells
 		
 		BufferedReader in = new BufferedReader(new InputStreamReader(
@@ -30,7 +34,7 @@ public class SpellIconList {
 				
 				String iconName[];
 				for (int i = 0; i < iconText.length; i++) {
-					getSpellId(iconText[i]);
+					
 					//System.out.println(i + "icon" + iconText[i]);
 					String finalIconText[];
 					if (iconText[i].contains("rank_enus")) {
@@ -41,22 +45,28 @@ public class SpellIconList {
 								.println("http://wow.zamimg.com/images/wow/icons/large/"
 										+ finalIconText[1] + ".jpg");
 						//System.out.println("http://mop.wowhead.com/spell=");
+						getSpellId(iconText[i], finalIconText[1]);
 					}
+					
 				}
 			}
 		}
 	}
-	private void getSpellId(String iconText) throws IOException{
+	
+	private void getSpellId(String iconText, String imageName) throws IOException, ClassNotFoundException, SQLException{
 		String spellText[];
 		spellText = iconText.split("_\\[");
 		String spellTextFinal[] = spellText[1].split("]");
-		new SpellDetails().getSpellDetails(spellTextFinal[0]);
+		String spellNameText[] = iconText.split("name_enus:'");
+		String[] finalSpellName = spellNameText[1].split("'");
+		//String spellId, String imageName, String className, String spec, String build, String version
+		new SpellDetails().getSpellDetails(spellTextFinal[0], finalSpellName[0],"Monk","ALL","", "");
 		System.out.println("Spell id= " + spellTextFinal[0]);		
 	}
 
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
-		new SpellIconList().getIconList();
+		//new SpellIconList().getIconList();
 	}
 
 }
