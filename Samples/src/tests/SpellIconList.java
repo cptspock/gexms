@@ -64,9 +64,9 @@ public class SpellIconList {
 		System.out.println("Spell id= " + spellTextFinal[0]);		
 	}
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException, ClassNotFoundException, SQLException {
 		// TODO Auto-generated method stub
-		//new SpellIconList().getIconList();
+		new SpellIconList().getIconList();
 	}
 
 }
