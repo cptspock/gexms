@@ -9,21 +9,30 @@ import java.sql.SQLException;
 public class SpellDetails {
 	URL stream = null;
 	BufferedReader in = null;
+	SpellDAO spellDAO;
 
-	public void getSpellDetails(String spellId, String imageName, String className, String spec, String build, String version) throws IOException, ClassNotFoundException, SQLException {
+	public SpellDetails() throws ClassNotFoundException, SQLException {
+		spellDAO = new SpellDAO();
+	}
+
+	public void getSpellDetails(String spellId, String imageName,
+			String className, String spec, String build, String version)
+			throws IOException, ClassNotFoundException, SQLException {
 		stream = new URL("http://mop.wowhead.com/spell=" + spellId);
 		in = new BufferedReader(new InputStreamReader(stream.openStream()));
 		String inputLine;
 		String spellText[];
-		String finalSpellText[];
+		String finalSpellText[] = null;
 		String cost[];
 		String range[];
 		String fullSpellName[];
 		String finalSpellName[];
-		String spellName="";;
-		String finalCost[]=null;
-		String finalTime[]=null;
-		String finalRange[]=null;
+		String spellName = "";
+		;
+		String finalCost[] = null;
+		String finalTime[] = null;
+		String finalRange[] = null;
+		String finalCooldown = "";
 
 		while ((inputLine = in.readLine()) != null) {
 			// System.out.println(inputLine);
@@ -40,27 +49,20 @@ public class SpellDetails {
 				System.out.println(finalSpellText[0]);
 			}
 
-			if (inputLine.contains("tooltip_enus")) {
-				cost = inputLine.split("<td>");
-				for (int i = 0; i < cost.length; i++) {
-					if ((cost[i].toLowerCase().contains("rage"))
-							|| (cost[i].toLowerCase().contains("mana"))
-							|| (cost[i].toLowerCase().contains("energy"))
-							|| (cost[i].toLowerCase().contains("chi"))
-							|| (cost[i].toLowerCase().contains("frost"))
-							|| (cost[i].toLowerCase().contains("unholy"))
-							|| (cost[i].toLowerCase().contains("blood"))) {
-						// System.out.println("full cost:" + cost[i]);
-						finalCost = cost[i].split("</td>");
-						System.out.println("final cost:" + finalCost[0]);
-						break;
-					}
-				}
+			// to change to support NO cost spells <th
+			// style="border-top: 0">Cost</th><td
+			// style="border-top: 0">None</td>
+			if (inputLine.contains("<th style=\"border-top: 0\">Cost</th>")) {
+				cost = inputLine.split("<td style=\"border-top: 0\">");
+				// System.out.println("full cost:" + cost[i]);
+				finalCost = cost[1].split("</td>");
+				System.out.println("final cost:" + finalCost[0]);
+
 			}
-			
-			//find cast range
+
+			// find cast range
 			if (inputLine.contains("<th>Range</th>")) {
-				range = inputLine.split("<th>Range</th>");		
+				range = inputLine.split("<th>Range</th>");
 				String tempRange[] = range[1].split("<td>");
 				finalRange = tempRange[1].split("<");
 				System.out.println("final range:" + finalRange[0]);
@@ -70,25 +72,52 @@ public class SpellDetails {
 			String time[];
 			// find cast time
 			if (inputLine.contains("<th>Cast time</th>")) {
-				time = inputLine.split("<th>Cast time</th>");		
+				time = inputLine.split("<th>Cast time</th>");
 				String tempTime[] = time[1].split("<td>");
 				finalTime = tempTime[1].split("<");
 				System.out.println("final time:" + finalTime[0]);
 				// break;
 				// }
 			}
+			// find spell cooldown
+			String cooldown[];
+			String cooldownFull[];
+			if (inputLine.contains("<th>Cooldown</th>")) {
+				if (inputLine.contains("<span class=\"q0\">")
+						&& !inputLine.contains("seconds")
+						&& !inputLine.contains("minutes")) {
+					cooldown = inputLine.split("<span class=\"q0\">");
+					String tempCooldown[] = cooldown[1].split("<");
+					finalCooldown = tempCooldown[0];
+					System.out.println("final cooldown:" + finalCooldown);
+				} else {
+					String fullCooldown[];
+					cooldownFull = inputLine.split("<th>Cooldown</th>");
+					String tempCooldown[] = cooldownFull[1].split("</div>-->");
+					fullCooldown = tempCooldown[1].split("<");
+					finalCooldown = fullCooldown[0];
+					System.out.println("final cooldown:" + finalCooldown);
+				}
+			}
 
 		}
-		insertDb(spellId, spellName, imageName, finalCost[0], finalRange[0], finalTime[0], className, spec, build, version);
+		if (finalSpellText != null)
+			insertDb(spellId, spellName, finalSpellText[0], imageName,
+					finalCost[0], finalCooldown, finalRange[0], finalTime[0],
+					className, spec, build, version);
 	}
-	
-	private void insertDb(String spellId, String spellName, String imageName, String cost, String range, String time, String className, String spec, String build, String version) throws ClassNotFoundException, SQLException{
-		SpellDAO spellDAO = new SpellDAO();
-		spellDAO.DBInsert(spellId, spellName, imageName, cost, range, time, className, spec, build, version);
-		
+
+	private void insertDb(String spellId, String spellName, String desc,
+			String imageName, String cost, String cooldown, String range,
+			String time, String className, String spec, String build,
+			String version) throws ClassNotFoundException, SQLException {
+
+		spellDAO.DBInsert(spellId, spellName, desc, imageName, cost, cooldown,
+				range, time, className, spec, build, version);
+
 	}
 
 	public static void main(String[] args) throws IOException {
-		//new SpellDetails().getSpellDetails("78");
+		// new SpellDetails().getSpellDetails("78");
 	}
 }
