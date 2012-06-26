@@ -14,8 +14,8 @@ public class SpellDAO {
 		Class.forName("org.sqlite.JDBC");
 		conn = DriverManager.getConnection("jdbc:sqlite:wowmist.db");
 		stat = conn.createStatement();
-		stat.executeUpdate("drop table if exists spell;");
-		stat.executeUpdate("create table if not exists spell(spellId TEXT, spellName TEXT, desc TEXT, imageName TEXT, cost TEXT, cooldown TEXT, range TEXT, time TEXT, class TEXT, spec TEXT, build TEXT, version TEXT);");
+		//stat.executeUpdate("drop table if exists spell;");
+		stat.executeUpdate("create table if not exists spell(spellId TEXT, spellName TEXT, desc TEXT, imageName TEXT, cost TEXT, cooldown TEXT, range TEXT, time TEXT, class TEXT, spec TEXT, build TEXT, version TEXT, primary key(spellId));");
 	}
 
 	public void DBInsert(String spellId, String spellName, String desc,
