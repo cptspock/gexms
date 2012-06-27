@@ -6,6 +6,8 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.sql.SQLException;
 
+import sun.net.www.URLConnection;
+
 public class SpellIconList {
 	SpellDetails spellDetails;
 
@@ -22,10 +24,13 @@ public class SpellIconList {
 	}
 	private void getIconList() throws IOException, ClassNotFoundException, SQLException {
 		//URL stream = new URL("http://mop.wowhead.com/spells=7.10"); //main spells
-		URL stream = new URL("http://mop.wowhead.com/spells=-12.10"); //spec spells
+		URL stream = new URL("http://mop.wowhead.com/spells=-12.1"); //spec spells
+		java.net.URLConnection con = stream.openConnection();
+		con.setConnectTimeout(10000);
+		con.setReadTimeout(10000);
 		
 		BufferedReader in = new BufferedReader(new InputStreamReader(
-				stream.openStream()));
+				con.getInputStream()));
 		String inputLine;
 		while ((inputLine = in.readLine()) != null) {
 			//System.out.println(inputLine);
@@ -62,12 +67,11 @@ public class SpellIconList {
 		//String spellNameText[] = iconText.split("name_enus:'");
 		//String[] finalSpellName = spellNameText[1].split("'");
 		//String spellId, String imageName, String className, String spec, String build, String version
-		spellDetails.getSpellDetails(spellTextFinal[0], imageName,"Monk","SPEC","build", "5.0");
+		spellDetails.getSpellDetails(spellTextFinal[0], imageName,"Warrior","ALL","build", "5.0");
 		System.out.println("Spell id= " + spellTextFinal[0]);		
 	}
 
 	public static void main(String[] args) throws IOException, ClassNotFoundException, SQLException {
-		// TODO Auto-generated method stub
 		new SpellIconList().getIconList();
 		
 	}

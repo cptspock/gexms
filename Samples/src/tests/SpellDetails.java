@@ -101,10 +101,13 @@ public class SpellDetails {
 			}
 
 		}
-		if (finalSpellText != null)
+		if (finalSpellText != null){
+			ImageCopier.copySpellImage(spellName, spellId, imageName, className);
 			insertDb(spellId, spellName, finalSpellText[0], imageName,
 					finalCost[0], finalCooldown, finalRange[0], finalTime[0],
 					className, spec, build, version);
+		}
+			
 	}
 
 	private void insertDb(String spellId, String spellName, String desc,
