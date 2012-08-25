@@ -40,13 +40,13 @@ public class SpellDetails {
 				fullSpellName = inputLine.split("<title>");
 				finalSpellName = fullSpellName[1].split("- Spell");
 				spellName = finalSpellName[0];
-				System.out.println("Spell name: " + spellName);
+				//System.out.println("Spell name: " + spellName);
 			}
 
 			if (inputLine.contains("<meta name=\"description\"")) {
 				spellText = inputLine.split("content=\"");
 				finalSpellText = spellText[1].split("\" />");
-				System.out.println(finalSpellText[0]);
+				//System.out.println(finalSpellText[0]);
 			}
 
 			// to change to support NO cost spells <th
@@ -56,7 +56,7 @@ public class SpellDetails {
 				cost = inputLine.split("<td style=\"border-top: 0\">");
 				// System.out.println("full cost:" + cost[i]);
 				finalCost = cost[1].split("</td>");
-				System.out.println("final cost:" + finalCost[0]);
+				//System.out.println("final cost:" + finalCost[0]);
 
 			}
 
@@ -65,7 +65,7 @@ public class SpellDetails {
 				range = inputLine.split("<th>Range</th>");
 				String tempRange[] = range[1].split("<td>");
 				finalRange = tempRange[1].split("<");
-				System.out.println("final range:" + finalRange[0]);
+				//System.out.println("final range:" + finalRange[0]);
 				// break;
 				// }
 			}
@@ -75,7 +75,7 @@ public class SpellDetails {
 				time = inputLine.split("<th>Cast time</th>");
 				String tempTime[] = time[1].split("<td>");
 				finalTime = tempTime[1].split("<");
-				System.out.println("final time:" + finalTime[0]);
+				//System.out.println("final time:" + finalTime[0]);
 				// break;
 				// }
 			}
@@ -89,20 +89,20 @@ public class SpellDetails {
 					cooldown = inputLine.split("<span class=\"q0\">");
 					String tempCooldown[] = cooldown[1].split("<");
 					finalCooldown = tempCooldown[0];
-					System.out.println("final cooldown:" + finalCooldown);
+					//System.out.println("final cooldown:" + finalCooldown);
 				} else {
 					String fullCooldown[];
 					cooldownFull = inputLine.split("<th>Cooldown</th>");
 					String tempCooldown[] = cooldownFull[1].split("</div>-->");
 					fullCooldown = tempCooldown[1].split("<");
 					finalCooldown = fullCooldown[0];
-					System.out.println("final cooldown:" + finalCooldown);
+					//System.out.println("final cooldown:" + finalCooldown);
 				}
 			}
 
 		}
 		if (finalSpellText != null){
-			ImageCopier.copySpellImage(spellName, spellId, imageName, className);
+			ImageCopier.copySpellImage(spellName, spellId, imageName, className, spec);
 			insertDb(spellId, spellName, finalSpellText[0], imageName,
 					finalCost[0], finalCooldown, finalRange[0], finalTime[0],
 					className, spec, build, version);

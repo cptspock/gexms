@@ -10,8 +10,8 @@ import java.net.URL;
 
 public class ImageCopier {
 	
-	public static void copySpellImage(String spellName, String spellId, String imageName, String className) throws IOException{
-		URL url = new URL("http://wow.zamimg.com/images/wow/icons/large/" + imageName +".jpg");
+	public static void copySpellImage(String spellName, String spellId, String imageName, String className, String spec) throws IOException{
+		URL url = new URL("http://wow.zamimg.com/images/wow/icons/large/" + imageName.toLowerCase() +".jpg");
 		InputStream in = new BufferedInputStream(url.openStream());
 		ByteArrayOutputStream out = new ByteArrayOutputStream();
 		byte[] buf = new byte[4096];
@@ -25,7 +25,7 @@ public class ImageCopier {
 		byte[] response = out.toByteArray();
 		spellName = spellName.replace(":", "");
 		System.out.println("Spell after replacing :" +spellName);
-		File imageDir= new File("c://home2//" + className); 
+		File imageDir= new File("/Users/gmtheace/dev/wow/talents/" + className + "/" + spec); 
 		if (!imageDir.exists()){
 			boolean success = imageDir.mkdirs();
 			if (!success) {
@@ -33,7 +33,7 @@ public class ImageCopier {
 			}			
 		}
 
-		FileOutputStream fos = new FileOutputStream(imageDir +"//" +className + "_" + spellName.trim() + "_" +spellId +".jpg" );
+		FileOutputStream fos = new FileOutputStream(imageDir +"/" +className + "_" + spellName.toLowerCase().trim() + "_" +spellId +".jpg" );
 	    fos.write(response);
 	    fos.close();	
 	}
