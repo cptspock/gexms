@@ -35,9 +35,9 @@ public class SpellIconList {
 		//URL stream = new URL("http://mop.wowhead.com/spells=7.7"); //Shaman common spells
 		//URL stream = new URL("http://mop.wowhead.com/spells=7.9"); //Warlock common spells
 		//URL stream = new URL("http://mop.wowhead.com/spells=-2.6"); //DK talents
-		URL stream = new URL("http://mop.wowhead.com/spells=-2.1");
+		URL stream = new URL("http://mop.wowhead.com/spells=-12.1"); 
  		URLConnection con = stream.openConnection();
-		con.setConnectTimeout(10000);
+		con.setConnectTimeout(10000); //10 sec timeout for opening the URL
 		con.setReadTimeout(10000);
         BufferedReader in = new BufferedReader(new InputStreamReader(
 				con.getInputStream()));
@@ -77,7 +77,7 @@ public class SpellIconList {
 		//String spellNameText[] = iconText.split("name_enus:'");
 		//String[] finalSpellName = spellNameText[1].split("'");
 		//String spellId, String imageName, String className, String spec, String build, String version
-		spellDetails.getSpellDetails(spellTextFinal[0], imageName,"Warrior","TALENT","build", "5.0");
+		spellDetails.getSpellDetails(spellTextFinal[0], imageName,"Warrior","SPEC","build", "5.0");
 		System.out.println("Spell id= " + spellTextFinal[0]);		
 	}
 

@@ -25,7 +25,7 @@ public class ImageCopier {
 		byte[] response = out.toByteArray();
 		spellName = spellName.replace(":", "");
 		System.out.println("Spell after replacing :" +spellName);
-		File imageDir= new File("/Users/gmtheace/dev/wow/talents/" + className + "/" + spec); 
+		File imageDir= new File("/Users/gmtheace/dev/wow/" + className + "/" + spec); 
 		if (!imageDir.exists()){
 			boolean success = imageDir.mkdirs();
 			if (!success) {
