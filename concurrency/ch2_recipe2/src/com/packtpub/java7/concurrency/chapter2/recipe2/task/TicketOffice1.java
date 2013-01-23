@@ -25,7 +25,7 @@ public class TicketOffice1 implements Runnable {
 	 */
 	@Override
 	public void run() {
-		cinema.sellTickets1(3);
+		cinema.sellTickets1(3);// 3 + 2 + 5 = 10
 		cinema.sellTickets1(2);
 		cinema.sellTickets2(2);
 		cinema.returnTickets1(3);
