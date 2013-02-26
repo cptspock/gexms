@@ -17,7 +17,7 @@ public class CompareTester {
 }
 
 class Name implements Comparable<Name> {
-	@GuardedBy("this") private final String firstName, lastName;
+	private final String firstName, lastName;
 
 	public Name(String firstName, String lastName) {
 		if (firstName == null || lastName == null)
