@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.concurrent.TimeUnit;
 
 public class GetTicker {
 	public static void main(String args[]) throws Exception {
@@ -32,7 +33,7 @@ public class GetTicker {
 			 * while ((inputLine = in2.readLine()) != null){
 			 * System.out.println(inputLine); }
 			 */
-			Thread.sleep(5000);
+			Thread.sleep(10L);
 		}
 		// in2.close();
 	}
