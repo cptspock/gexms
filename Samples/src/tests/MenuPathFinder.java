@@ -30,7 +30,7 @@ public class MenuPathFinder {
                     System.out.println("Dir: " + dir.toString());
                     return FileVisitResult.CONTINUE;
                 }
-*/
+                 */
                 @Override
                 public FileVisitResult visitFile(Path file,
                         BasicFileAttributes attrs) {
@@ -38,12 +38,13 @@ public class MenuPathFinder {
                     //if (file.getFileName().endsWith("MENU")){
                       //  System.out.println("Menu File: " + file.toString());    
                     //}
-                    if ((file.toString().contains("Argentina")) && (file.getFileName().endsWith("GT.MENU"))){
-                        System.out.println("GT File: " + file.toString());    
+                    if ((file.toString().contains("UK")) && (file.getFileName().endsWith("GT.MENU"))){
+                        System.out.println("GT File: " + file.toString());
+                       // System.out.println("GT Filename: " + file.getFileName());
                     }
                     
-                    if ((file.toString().contains("Argentina")) && (file.getFileName().endsWith("MENU"))){
-                        System.out.println("GT File: " + file.toString());    
+                    if ((file.toString().contains("UK")) && (file.getFileName().endsWith("MENU"))){
+                        System.out.println("Menu File: " + file.toString());    
                     }
                     
                     return FileVisitResult.CONTINUE;
