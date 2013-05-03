@@ -3,6 +3,7 @@ package tests;
 public class LinkedList {
 
 	Node head;
+	
 	public void add(Node node){
 		if (head == null) {
 			head = node;
@@ -40,7 +41,6 @@ public class LinkedList {
 		while (current.getNext()!= null){
 			previous = current;
 		    current = current.getNext();
-		    
 		}
 		previous.setNext(null);
 	}
