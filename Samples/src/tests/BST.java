@@ -1,24 +1,24 @@
 package tests;
 
 public class BST {
-	private Node root;
+	private BSTNode root;
 
 	public BST() {
 	}
 
-	public Node getRoot() {
+	public BSTNode getRoot() {
 		return root;
 	}
 
-	public void setRoot(Node root) {
+	public void setRoot(BSTNode root) {
 		this.root = root;
 	}
 
-	public void insert(Node nodeToAdd) {
+	public void insert(BSTNode nodeToAdd) {
 		root = insert(root, nodeToAdd);
 	}
 
-	private Node insert(Node currentNode, Node nodeToAdd) {
+	private BSTNode insert(BSTNode currentNode, BSTNode nodeToAdd) {
 		if (currentNode == null)
 			return nodeToAdd;
 		else {
@@ -34,7 +34,7 @@ public class BST {
 		return currentNode;
 	}
 
-	public void inOrderTraverse(Node currentNode) {
+	public void inOrderTraverse(BSTNode currentNode) {
 		if (currentNode == null)
 			return;
 		inOrderTraverse(currentNode.getLeft());
@@ -42,7 +42,7 @@ public class BST {
 		inOrderTraverse(currentNode.getRight());
 	}
 
-	public void preOrderTraverse(Node currentNode) {
+	public void preOrderTraverse(BSTNode currentNode) {
 		if (currentNode == null)
 			return;
 		System.out.println(currentNode.getData());
@@ -50,7 +50,7 @@ public class BST {
 		preOrderTraverse(currentNode.getRight());
 	}
 
-	public void postOrderTraverse(Node currentNode) {
+	public void postOrderTraverse(BSTNode currentNode) {
 		if (currentNode == null)
 			return;
 		postOrderTraverse(currentNode.getLeft());
@@ -60,28 +60,28 @@ public class BST {
 
 	public static void main(String[] args) {
 		BST bst = new BST();
-		Node node1 = new Node();
+		BSTNode node1 = new BSTNode();
 		node1.setData(10);
 		bst.insert(node1);
 		// bst.setRoot(node1);
 		System.out.println(bst.getRoot().getData());
 
-		Node node2 = new Node();
+		BSTNode node2 = new BSTNode();
 		node2.setData(20);
 		bst.insert(node2);
 		System.out.println(bst.getRoot().getRight().getData());
 
-		Node node3 = new Node();
+		BSTNode node3 = new BSTNode();
 		node3.setData(5);
 		bst.insert(node3);
 		System.out.println(bst.getRoot().getLeft().getData());
 
-		Node node4 = new Node();
+		BSTNode node4 = new BSTNode();
 		node4.setData(7);
 		bst.insert(node4);
 		// System.out.println(bst.getRoot().getLeft().getRight().getData());
 
-		Node node5 = new Node();
+		BSTNode node5 = new BSTNode();
 		node5.setData(15);
 		bst.insert(node5);
 		System.out.println(bst.getRoot().getRight().getLeft().getData());

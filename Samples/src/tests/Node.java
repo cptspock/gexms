@@ -2,8 +2,7 @@ package tests;
 
 public class Node {
 	private Integer data;
-	private Node left;
-	private Node right;
+	private Node next;
 	
 	public Integer getData() {
 		return data;
@@ -11,20 +10,10 @@ public class Node {
 	public void setData(Integer data) {
 		this.data = data;
 	}
-	public Node getLeft() {
-		return left;
+	public Node getNext() {
+		return next;
 	}
-	public void setLeft(Node left) {
-		this.left = left;
+	public void setNext(Node next) {
+		this.next = next;
 	}
-	public Node getRight() {
-		return right;
-	}
-	public void setRight(Node right) {
-		this.right = right;
-	}
-	
-	
-	
-
 }
