@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Selenium TestNG Suite" parallel="tests"
+    thread-count="5">
+
+    <test name="Selenium TestNG - 1">
+        <parameter name="browser" value="firefox" />
+        <parameter name="port" value="4444" />
+        <classes>
+            <class name="webdriver.CrossBrowserTest" />
+        </classes>
+    </test>
+    <test name="Selenium TestNG - 2">
+        <parameter name="browser" value="chrome" />
+        <parameter name="port" value="4444" />
+        <classes>
+            <class name="webdriver.CrossBrowserTest" />
+        </classes>
+    </test>
+
+</suite>
