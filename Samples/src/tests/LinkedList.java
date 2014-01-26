@@ -45,7 +45,7 @@ public class LinkedList {
 	}
 	
 	/**
-	 * reverse a linked list given the head of the list
+	 * reverse a linked list given the head of the list using recursion
 	 * @param current
 	 * @return
 	 */
