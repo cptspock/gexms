@@ -12,6 +12,6 @@ public class StringReversal {
 	
 	public static void main(String[] args){
 		StringReversal sr = new StringReversal();
-		System.out.println(sr.reverse(null));
+		System.out.println(sr.reverse("Gordon"));
 	}
 }
