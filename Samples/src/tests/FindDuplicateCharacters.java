@@ -1,15 +1,24 @@
 package tests;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
 
+/**
+ * Very important example due to Hashmap 
+ * @author ace
+ *
+ */
 public class FindDuplicateCharacters{
 
     public static void main(String args[]) {
         printDuplicateCharacters("Programming in java");
         printDuplicateCharacters("Combination");
         printDuplicateCharacters("Java");
+        System.out.println(removeDuplicates("Programming in java"));
+        
     }
 
     /*
@@ -19,7 +28,7 @@ public class FindDuplicateCharacters{
         char[] characters = word.toCharArray();
 
         // build HashMap with character and number of times they appear in String
-        Map<Character, Integer> charMap = new HashMap<Character, Integer>();
+        Map<Character, Integer> charMap = new HashMap<>();
         for (Character ch : characters) {
             if (charMap.containsKey(ch) && !Character.isWhitespace(ch)) {
                 charMap.put(ch, charMap.get(ch) + 1);
@@ -37,5 +46,31 @@ public class FindDuplicateCharacters{
             }
         }
     }
+    
+    public static String removeDuplicates2(String word) {
+    	char[] characters = word.toCharArray();
+    	
+    	Set<Character> result = new LinkedHashSet<Character>();
+    	for (int i=0; i < word.length(); i++) {
+    		result.add(characters[i]);
+    	}
+    	
+    	StringBuilder s = new StringBuilder();
+    	for (Character c : result) {
+    		s.append(c);
+    	}
+    	return s.toString();
+    }
+    
+    // very elegant solution provided indexOf(char) is allowed
+    public static String removeDuplicates(String inputStr){
+		StringBuilder strBuilder = new StringBuilder();
+		for(char val : inputStr.toCharArray()){
+			if(strBuilder.toString().indexOf(val) < 0){
+				strBuilder.append(val);
+			}
+		}
+		return strBuilder.toString();
+	}
 
 }

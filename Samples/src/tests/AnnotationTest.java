@@ -1,5 +1,5 @@
 package tests;
-
+/*
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
@@ -64,4 +64,4 @@ public class AnnotationTest {
 			System.out.println("in afterSuite");
 		}
 
-}
+}*/

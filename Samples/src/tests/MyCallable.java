@@ -1,6 +1,7 @@
 package tests;
 
 import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.FutureTask;
@@ -18,7 +19,10 @@ public class MyCallable implements Callable<Integer> {
 		try {
 			Integer result = (Integer) task.get();
 			System.out.println("Result from task.get () = " + result);
-		} catch (Exception e) {
+		} catch (ExecutionException e) {
+			System.err.println(e);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
 			System.err.println(e);
 		}
 		es.shutdown();

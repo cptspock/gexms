@@ -1,5 +1,9 @@
 package tests;
 
+/**
+ * http://www.algolist.net/Algorithms/Sorting/Quicksort
+ * 
+ */
 public class QuickSort {
 
 	private int array[];

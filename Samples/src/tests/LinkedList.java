@@ -23,10 +23,9 @@ public class LinkedList {
 		return this.head;
 	}
 
-	public void traverse(Node head) {
+	public void traverse() {
 		if (head == null) {
 			System.out.println("Null list");
-			return;
 		} else {
 			Node current = head;
 			while (current != null) {
@@ -47,6 +46,15 @@ public class LinkedList {
 			current = current.getNext();
 		}
 		previous.setNext(null);
+	}
+	
+	/**
+	 * Removes head of linked list
+	 */
+	public void remove2() {
+		Node temp = this.head.getNext();
+		this.head.setNext(null);
+		this.head = temp;
 	}
 
 	/**
@@ -97,12 +105,14 @@ public class LinkedList {
 		list.add(node3);
 
 		// list.remove();
-		list.traverse(head);
+		list.traverse();
+		list.remove2();
+		list.traverse();
 
 		Node head2 = list.reverseList(head);
-		list.traverse(head2);
+		list.traverse();
 		
 		Node head3 = list.reverseListNoRecursion(head2);
-		list.traverse(head3);
+		list.traverse();
 	}
 }

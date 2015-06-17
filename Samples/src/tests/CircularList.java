@@ -85,7 +85,7 @@ public class CircularList {
 		
 		System.out.print(list.hasLoop(head));
 		
-		list.traverse(head);
+		//list.traverse(head);
 
 	}
 }

@@ -3,13 +3,13 @@ package tests;
 public class RemoveDuplicates {
 	public static void main(String... args) {
 		// remove duplicate elements logic
-        int[] a = {4, 3, 6, 4, 9, 6, 4};
-        int l = a.length;
+        int[] a = {4, 3, 6, 4, 9, 6, 4, 3};
+        int length = a.length;
 
      // sorting elements in the array logic
-        for (int i = 0; i < l; i++) 
+        for (int i = 0; i < length; i++) 
         {
-            for (int j = 0; j < l - 1; j++) 
+            for (int j = 0; j < length - 1; j++) 
             {
                 if (a[j] > a[j + 1])
                 {
@@ -41,11 +41,11 @@ public class RemoveDuplicates {
         }
         System.out.println("k=" +k);
         
-        for (int i = k+1; i < l; i++){
+        for (int i = k+1; i < length; i++){
         	a[i] = Integer.MIN_VALUE;
          }
         
-        for(int i=0;i<l;i++)
+        for(int i=0;i<length;i++)
         {
             System.out.println(a[i]);
         }

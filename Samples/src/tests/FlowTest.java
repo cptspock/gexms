@@ -3,6 +3,7 @@ package tests;
 public class FlowTest extends ParentFlow {
 
 	public static int globalVar = 10;
+	private static int privateVar = 100;
 	static {
 		System.out.println("FlowTest static block");
 	}
@@ -17,7 +18,8 @@ public class FlowTest extends ParentFlow {
 	}
 
 	public static void main(String args[]) {
-		new FlowTest();
+		ParentFlow p = new FlowTest();
+		System.out.println(FlowTest.globalVar);
 
 		String a = "Marillion";
 		String b = "Marillion";
