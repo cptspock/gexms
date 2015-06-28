@@ -18,8 +18,9 @@ public class Palindrome {
 	}
 	
 	public static void main(String[] args) {
-		String pal = "level";
-		System.out.println(new Palindrome().isPalindrome(pal));
+		String pal = "Avid.. diva.#''@$";
+		pal = pal.replaceAll("[^a-zA-Z]", "");
+		System.out.println(new Palindrome().isPalindrome(pal.toLowerCase()));
 		
 	}
 
