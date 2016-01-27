@@ -13,7 +13,7 @@ public class LargestSumArray {
 		int end = 0;
 		boolean flag = false;
 		
-		// logic to handle all negative numbers
+		// logic to handle all negative numbers in the array
 		boolean allnegative = false;
 		for (int i=0; i<a.length; i++) {
 			if (a[i] < 0) {
