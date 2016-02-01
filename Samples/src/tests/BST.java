@@ -1,6 +1,17 @@
 package tests;
 
 // BST is a binary tree where left node is always less than the root and right is always greater than root
+/**
+ * You should be able to easily implement the following algorithms prior to your interview:
+ * » In-Order: Traverse left node, current node, then right [usually used for binary search
+ * trees]
+ * » Pre-Order: Traverse current node, then left node, then right node.
+ * » Post-Order: Traverse left node, then right node, then current node.
+ * » Insert Node: On a binary search tree, we insert a value v, by comparing it to the root. If v
+ * > root, we go right, and else we go left. We do this until we hit an empty spot in the tree.
+ *  
+ *
+ */
 public class BST {
 	private BSTNode root;
 
@@ -116,3 +127,4 @@ public class BST {
 		bst.postOrderTraverse(bst.getRoot());
 	}
 }
+
