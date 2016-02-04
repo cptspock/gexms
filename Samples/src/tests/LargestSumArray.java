@@ -49,8 +49,6 @@ public class LargestSumArray {
 				max_so_far = max_ending_here;
 				end = i;
 			}
-				
-			
 		}
 		
 		System.out.println("start = " + start);

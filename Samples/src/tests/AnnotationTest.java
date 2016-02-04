@@ -50,7 +50,7 @@ public class AnnotationTest {
 		}
 
 		@AfterTest
-		public void afterTest() {
+		public void afterTest() {o
 			System.out.println("in afterTest");
 		}
 

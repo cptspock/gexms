@@ -7,9 +7,8 @@ package tests;
  * trees]
  * » Pre-Order: Traverse current node, then left node, then right node.
  * » Post-Order: Traverse left node, then right node, then current node.
- * » Insert Node: On a binary search tree, we insert a value v, by comparing it to the root. If v
- * > root, we go right, and else we go left. We do this until we hit an empty spot in the tree.
- *  
+ * » Insert Node: On a binary search tree, we insert a value v, by comparing it to the root. If 
+ *   v > root, we go right, and else we go left. We do this until we hit an empty spot in the tree.
  *
  */
 public class BST {
@@ -38,9 +37,9 @@ public class BST {
 			int compare = nodeToAdd.getData().compareTo(currentNode.getData());
 			if (compare < 0)
 				currentNode.setLeft(insert(currentNode.getLeft(), nodeToAdd));
-			if (compare > 0)
+			else if (compare > 0) 
 				currentNode.setRight(insert(currentNode.getRight(), nodeToAdd));
-			if (compare == 0) {
+			else {
 				System.out.println(nodeToAdd.getData() + " already exists");
 			}
 		}
@@ -111,7 +110,6 @@ public class BST {
 		System.out.println("inserting 15");
 		//System.out.println(bst.getRoot().getRight().getLeft().getData());
 
-		
 		BSTNode node6 = new BSTNode();
 		node6.setData(9);
 		bst.insert(node6);

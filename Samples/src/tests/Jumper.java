@@ -13,8 +13,8 @@ package tests;
 public class Jumper {
 
 	public static void main(String[] args) {
-		//int[] nums = { 2, 1, 3, 1, 4 };
-		int[] nums = { 2, 5, 9, 1, 3 };
+		int[] nums = { 2, 1, 3, 1, 4 };
+		//int[] nums = { 2, 5, 9, 1, 3 };
 		System.out.println(new Jumper().jump(nums));
 
 	}
