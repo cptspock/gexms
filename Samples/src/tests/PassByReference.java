@@ -22,13 +22,12 @@ public class PassByReference {
 		 * Point temp = arg1; arg1 = arg2; arg2 = temp;
 		 */
 		Point temp = new Point();
-		/*temp.x = arg1.x;
+		temp.x = arg1.x;
 		temp.y = arg1.y;
 		arg1.x = arg2.x;
 		arg1.y = arg2.y;
-
 		arg2.x = temp.x;
-		arg2.y = temp.y;*/
+		arg2.y = temp.y;
 		
 
 	}
