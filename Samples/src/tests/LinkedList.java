@@ -4,6 +4,7 @@ public class LinkedList {
 
 	Node head;
 
+	// adds to the tail of the node
 	public void add(Node node) {
 		if (head == null) {
 			head = node;
@@ -19,8 +20,17 @@ public class LinkedList {
 
 	}
 
+	public void addToHead(Node node) {
+		node = head;
+		head = node;
+	}
+
 	public Node getHead() {
 		return this.head;
+	}
+
+	public void setHead(Node head) {
+		this.head = head;
 	}
 
 	public void traverse() {
@@ -47,14 +57,16 @@ public class LinkedList {
 		}
 		previous.setNext(null);
 	}
-	
+
 	/**
 	 * Removes head of linked list
 	 */
 	public void remove2() {
 		Node temp = this.head.getNext();
 		this.head.setNext(null);
+		this.head.setData(null);
 		this.head = temp;
+
 	}
 
 	/**
@@ -78,16 +90,21 @@ public class LinkedList {
 	}
 
 	// easier to remember than recursion
-	public Node reverseListNoRecursion(Node current) {
-		Node temp;
-		Node previous = null;
+	public void reverseListNoRecursion() {
+
+		Node current = this.head;
+		Node pre = null;
+		Node incoming = null;
+
 		while (current != null) {
-			temp = current.getNext();
-			current.setNext(previous);
-			previous = current;
-			current = temp;
+			incoming = current.getNext(); // store incoming item
+			current.setNext(pre); // swap nodes
+			pre = current; // increment also pre
+			
+			current = incoming; // increment current
 		}
-		return previous;
+		
+		this.head = pre; // pre is the latest item where
 	}
 
 	public static void main(String[] args) {
@@ -106,13 +123,12 @@ public class LinkedList {
 
 		// list.remove();
 		list.traverse();
-		list.remove2();
-		list.traverse();
 
-		Node head2 = list.reverseList(head);
-		list.traverse();
+		// Node head2 = list.reverseList(head);
+		// list.traverse();
+
+		list.reverseListNoRecursion();
 		
-		Node head3 = list.reverseListNoRecursion(head2);
 		list.traverse();
 	}
 }

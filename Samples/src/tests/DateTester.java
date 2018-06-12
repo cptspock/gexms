@@ -30,11 +30,11 @@ public class DateTester {
 		Date date = new Date();
 		DateFormat pstFormat = new SimpleDateFormat("MMM dd yyyy HH:mm:ss z");
 		DateFormat gmtFormat = new SimpleDateFormat("MMM dd yyyy HH:mm:ss z");
-		TimeZone gmtTime = TimeZone.getTimeZone("GMT");
-		TimeZone pstTime = TimeZone.getTimeZone("PST");
+		//TimeZone gmtTime = TimeZone.getTimeZone("GMT");
+		//TimeZone pstTime = TimeZone.getTimeZone("PST");
 
-		pstFormat.setTimeZone(pstTime);
-		gmtFormat.setTimeZone(gmtTime);
+		//pstFormat.setTimeZone(pstTime);
+		//gmtFormat.setTimeZone(gmtTime);
 		System.out.println("GMT Time: " + gmtFormat.format(date));
 		System.out.println("PST Time: " + pstFormat.format(date));
 	}

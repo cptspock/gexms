@@ -35,7 +35,7 @@ public class SpellIconList {
 		//URL stream = new URL("http://mop.wowhead.com/spells=7.7"); //Shaman common spells
 		//URL stream = new URL("http://mop.wowhead.com/spells=7.9"); //Warlock common spells
 		//URL stream = new URL("http://mop.wowhead.com/spells=-2.6"); //DK talents
-		URL stream = new URL("http://mop.wowhead.com/spells=-12.1"); 
+		URL stream = new URL("http://www.wowhead.com"); 
  		URLConnection con = stream.openConnection();
 		con.setConnectTimeout(10000); //10 sec timeout for opening the URL
 		con.setReadTimeout(10000);
@@ -63,8 +63,7 @@ public class SpellIconList {
 										+ finalIconText[1] + ".jpg");
 						//System.out.println("http://mop.wowhead.com/spell=");
 						getSpellId(iconText[i], finalIconText[1]);
-					}
-					
+					}					
 				}
 			}
 		}

@@ -16,11 +16,12 @@ public class FinallyTest {
 		//int i = 0;
 		try {
 		  //i=2;
-		  return i;
+		  
 		} finally {
 		  i = 12;
 		  System.out.println("finally trumps return.");
-		}  
+		} 
+		return i;
 	}
 
 }

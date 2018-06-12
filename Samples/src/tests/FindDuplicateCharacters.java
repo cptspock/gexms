@@ -17,7 +17,7 @@ public class FindDuplicateCharacters{
         printDuplicateCharacters("Programming in java");
         printDuplicateCharacters("Combination");
         printDuplicateCharacters("Java");
-        System.out.println(removeDuplicates("Programming in java"));
+        System.out.println(removeDuplicates2("Programming in java"));
         
     }
 
@@ -36,7 +36,15 @@ public class FindDuplicateCharacters{
                 charMap.put(ch, 1);
             }
         }
-
+        
+        for (Character key : charMap.keySet()) {
+        	if ((charMap.get(key)) > 1) {
+        		System.out.println("duplicate character: " + key);
+        	}
+        }
+        for (int i : charMap.values()) {
+        	
+        }
         // Iterate through HashMap to print all duplicate characters of String
         Set<Map.Entry<Character, Integer>> entrySet = charMap.entrySet();
         System.out.printf("List of duplicate characters in String '%s' %n", word);
@@ -47,7 +55,7 @@ public class FindDuplicateCharacters{
         }
     }
     
-    public static String removeDuplicates2(String word) {
+    public static String removeDuplicates2(String word) { 
     	char[] characters = word.toCharArray();
     	
     	Set<Character> result = new LinkedHashSet<Character>();

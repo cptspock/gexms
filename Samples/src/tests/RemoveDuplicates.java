@@ -37,7 +37,6 @@ public class RemoveDuplicates {
             else {
             	System.out.println("duplicate: " + a[k]);
             }
-
         }
         System.out.println("k=" +k);
         
@@ -49,9 +48,5 @@ public class RemoveDuplicates {
         {
             System.out.println(a[i]);
         }
-        
-
 	}
-	
-	
 }

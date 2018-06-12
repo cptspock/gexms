@@ -13,11 +13,9 @@ import org.jsoup.select.Elements;
 public class QuestScrapper {
 	private QuestDAO questDAO;
 
-	public static void getQuestDetails() throws IOException {
+	public static void getQuestDetails(String questId) throws IOException {
 		URL stream = null;
 		BufferedReader in = null;
-
-		String questId = "38878";
 		stream = new URL("http://legion.wowhead.com/quest=" + questId);
 		Document doc = Jsoup.connect("http://legion.wowhead.com/quest=" + questId).get();
 		// stream = new URL("http://www.google.com");
@@ -62,15 +60,14 @@ public class QuestScrapper {
 				gold = inputLine.split("moneygold\">");
 				goldValue = gold[1];
 				String[] fullGoldLine = gold[1].split("</span>");
-				if (fullGoldLine[])
-				// System.out.println(fullGoldLine[0]);
+				System.out.println(fullGoldLine[0]);
 			}
 		}
 	}
 
 	public static void main(String[] args) {
 		try {
-			QuestScrapper.getQuestDetails();
+			QuestScrapper.getQuestDetails("");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

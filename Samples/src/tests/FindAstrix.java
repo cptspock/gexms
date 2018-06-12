@@ -40,7 +40,6 @@ public class FindAstrix {
 				System.out.println(s4);
 			}
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 

@@ -22,9 +22,8 @@ public class SmallestEvenNumber {
 	}
 	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		System.out.println(SmallestEvenNumber.findNextSmallestEven(8234961));
-
+		//System.out.println(SmallestEvenNumber.findNextSmallestEven(8234961));
+		System.out.println(SmallestEvenNumber.findNextSmallestEven(34722641));
 	}
 
 }

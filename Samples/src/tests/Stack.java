@@ -18,6 +18,7 @@ public class Stack {
 	public Stack(){
 		array = new Object[Stack.MAX_CAPACITY];
 	}
+	
 	public void push(Object node){
 		if (head < Stack.MAX_CAPACITY - 1){
 			head++;

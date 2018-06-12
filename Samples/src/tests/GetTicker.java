@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
 public class GetTicker {
 	public static void main(String args[]) throws Exception {
 		String symbol = "AAPL";
-		URL itemStream = new URL("http://www.google.com/finance?q=" + symbol);
+		URL itemStream = new URL("https://www.google.com/finance?q=" + symbol);
 		String inputLine;
 		final String DATE_FORMAT_NOW = "yyyy-MM-dd HH:mm:ss";
 		while (true) {

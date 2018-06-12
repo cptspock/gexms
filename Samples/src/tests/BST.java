@@ -34,13 +34,14 @@ public class BST {
 		if (currentNode == null)
 			return nodeToAdd;
 		else {
+			
 			int compare = nodeToAdd.getData().compareTo(currentNode.getData());
-			if (compare < 0)
+			if (compare < 0) // if nodeToAdd < currentNode
 				currentNode.setLeft(insert(currentNode.getLeft(), nodeToAdd));
-			else if (compare > 0) 
+			else if (compare > 0) // if nodeToAdd > currentNode
 				currentNode.setRight(insert(currentNode.getRight(), nodeToAdd));
 			else {
-				System.out.println(nodeToAdd.getData() + " already exists");
+				System.out.println(nodeToAdd.getData() + " already exists"); 
 			}
 		}
 		return currentNode;

@@ -1,12 +1,13 @@
 package tests;
 
-/*
- * string reversal in place- without using a temp string variable
- * recursive algo is sleeker imo.
- */
+/**
+  * string reversal in place- without using a temp string variable
+  * recursive algo is sleeker imo.
+  */
 public class StringReversalTwo {
 	
 	public static void main(String[] args){
+		
 		char[] s = {'a', 'b','c','d','e'};
 		int firstpos = 0;
 		int lastpos = s.length -1;
@@ -23,3 +24,5 @@ public class StringReversalTwo {
 		System.out.println(s);
 	}
 }
+
+

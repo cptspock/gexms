@@ -25,10 +25,9 @@ public class CrossBrowserTest {
 		DesiredCapabilities capability = new DesiredCapabilities();
 		capability.setBrowserName(browser);
 		try {
-			driver = new RemoteWebDriver(new URL("http://localhost:"
+		    driver = new RemoteWebDriver(new URL("http://localhost:"
 					.concat(port).concat("/wd/hub")), capability);
 		} catch (MalformedURLException e) {
-
 			e.printStackTrace();
 		}
 	}

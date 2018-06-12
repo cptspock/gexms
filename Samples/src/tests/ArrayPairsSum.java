@@ -16,7 +16,7 @@ public class ArrayPairsSum {
 	// http://javarevisited.blogspot.com/2014/08/how-to-find-all-pairs-in-array-of-integers-whose-sum-equal-given-number-java.html#ixzz3cyL9Rmqc
 	public static void main(String args[]) {
 		prettyPrint(new int[] { 12, 14, 17, 15, -11, 19, 20, -11 }, 9);
-		prettyPrint(new int[] { 1,0,-2,8,1,4,-3,3,5}, 6);
+		prettyPrint(new int[] { 1,-2,8,1,4,-3,3,5,6}, 6);
 	}
 
 	/**
@@ -45,6 +45,5 @@ public class ArrayPairsSum {
 
 		// Read more:
 		// http://javarevisited.blogspot.com/2014/08/how-to-find-all-pairs-in-array-of-integers-whose-sum-equal-given-number-java.html#ixzz3cyL3gM6u
-
 	}
 }
