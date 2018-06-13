@@ -30,9 +30,7 @@ public class ParkingFees {
 			diff = diff + 1;
 		}
 		
-		parkingFee = 2 + 3 + 4*(diff - 1);
-	
-		
+		parkingFee = 2 + 3 + 4*(diff - 1);	
 		return parkingFee;
 	}
 
