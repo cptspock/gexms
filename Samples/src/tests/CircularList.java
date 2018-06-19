@@ -16,7 +16,6 @@ public class CircularList {
 			current.setNext(node);
 			node.setNext(null);
 		}
-
 	}
 
 	public boolean hasLoop(Node first) {
@@ -29,7 +28,7 @@ public class CircularList {
 	    slow = fast = first; // make both refer to the start of the list.
 
 	    while(true) {
-
+	    	
 	        slow = slow.getNext();          // 1 hop.
 
 	        if(fast.getNext() != null)
