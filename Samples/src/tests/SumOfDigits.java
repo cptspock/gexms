@@ -2,24 +2,26 @@ package tests;
 
 public class SumOfDigits
 {
-  public static long SumOfNumbers ( String str ) throws ArithmeticException
+  public static long SumOfNumbers (String str) throws ArithmeticException
   {
     long sum = 0;
     int index = 0;
     int currentNumber = 0;
     int sign = 1;
-    if ( str == null ) return sum;
-    while (  index < str.length() )
+    
+    if (str == null) return sum;
+    
+    while (index < str.length())
     {
       //Check for negative sign
-      if ( str.charAt(index) == '-')
+      if (str.charAt(index) == '-')
       {
         sign = -1;
         index++;
       }
  
       boolean increment = true;
-      while ( index < str.length() && isDigit(str.charAt(index)))	
+      while (index < str.length() && isDigit(str.charAt(index)))	
       {
         currentNumber *= 10;
         currentNumber += str.charAt(index) - '0';
