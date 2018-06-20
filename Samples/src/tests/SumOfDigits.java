@@ -8,8 +8,8 @@ public class SumOfDigits
     int index = 0;
     int currentNumber = 0;
     int sign = 1;
-    if ( str == null ) return sum;
-    while (  index < str.length() )
+    if (str == null) return sum;
+    while (index < str.length())
     {
       //Check for negative sign
       if ( str.charAt(index) == '-')
@@ -19,10 +19,10 @@ public class SumOfDigits
       }
  
       boolean increment = true;
-      while ( index < str.length() && isDigit(str.charAt(index)))	
+      while (index < str.length() && isDigit(str.charAt(index)))	
       {
         currentNumber *= 10;
-        currentNumber += str.charAt(index) - '0';
+        currentNumber += str.charAt(index) - '0'; // diff will give the int value 
         index++;
         increment = false;
       }
