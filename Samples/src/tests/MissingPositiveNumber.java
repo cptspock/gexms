@@ -2,6 +2,10 @@ package tests;
 
 import java.util.*;
 
+/**
+ * Find first missing positive integer (1,4,5) should return 2
+ *
+ */
 public class MissingPositiveNumber {
 
 	/*

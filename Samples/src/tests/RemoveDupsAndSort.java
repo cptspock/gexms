@@ -10,7 +10,6 @@ public class RemoveDupsAndSort {
 
         int[] a = new int[] { 7,1,6,1,22,1,9,7,1 };
         int[] output = new int[a.length];
-        int zeroSize =0;
             for(int i= 0; i < a.length; i++) {
                 for(int j = i+1; j < a.length; j++) {
                     if(a[i] > a[j]) {
