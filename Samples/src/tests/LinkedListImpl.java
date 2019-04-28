@@ -1,6 +1,6 @@
 package tests;
 
-public class LinkedList {
+public class LinkedListImpl {
 
 	Node head;
 
@@ -108,7 +108,7 @@ public class LinkedList {
 	}
 
 	public static void main(String[] args) {
-		LinkedList list = new LinkedList();
+		LinkedListImpl list = new LinkedListImpl();
 		Node head = new Node();
 		head.setData(10);
 		list.add(head);
