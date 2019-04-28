@@ -2,23 +2,24 @@ package interviews;
 
 public class Factorial {
 
-	private double factorial(int n) throws IllegalArgumentException {
+	// note the use of long to support very big numbers as a result of calculating factorial
+	private long factorial(int n) throws IllegalArgumentException {
 		if (n < 0)
-			throw new IllegalArgumentException("the real place where the exception is thrown");
+			throw new IllegalArgumentException("Factorial is not defined");
 			
-		if (n <= 1)
+		else if (n <= 1)
 			return 1;
 		else
 			return n * factorial(n - 1);
 	}
 
-	public double caller(int n) {
+	public long caller(int n) {
 		return factorial(n);
 	}
 
 	public static void main(String[] args) {
 		try {
-			System.out.println(new Factorial().caller(-99));
+			System.out.println(new Factorial().caller(20));
 		} catch (IllegalArgumentException iae) {
 			// p.printStackTrace();
 			// StackTraceElement[] peas = p.getStackTrace();
