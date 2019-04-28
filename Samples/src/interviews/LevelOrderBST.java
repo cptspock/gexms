@@ -1,4 +1,4 @@
-package tests;
+package interviews;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -67,9 +67,9 @@ public class LevelOrderBST {
 		
 		/* if reverse order is needed as in 
 		 * [
-			  [3],
+			  [15,7],
 			  [9,20],
-			  [15,7]
+			  [3]
 		   ]
 		
 			Add:
