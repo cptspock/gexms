@@ -1,4 +1,6 @@
-package tests;
+package interviews;
+
+import tests.Node;
 
 public class CircularList {
 	

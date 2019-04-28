@@ -1,4 +1,4 @@
-package tests;
+package interviews;
 
 import java.util.Scanner;
 
