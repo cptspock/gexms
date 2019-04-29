@@ -15,7 +15,7 @@ public class StringToInt {
         long n = 70265765765758765L;
         System.out.println(new StringToInt().intToString(n));
         
-        String s = "32384564789999";
+        String s = "-99";
         System.out.println(new StringToInt().stringToInt(s));
     }
     
