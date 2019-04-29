@@ -26,18 +26,20 @@ return its level order traversal as:
  */
 
 
-class TreeNode {
-	int val;
-	TreeNode left;
-	TreeNode right;
 
-	TreeNode(int x) {
-		val = x;
-	}
-}
 
 public class LevelOrderBST {
+	
+	class TreeNode {
+		int val;
+		TreeNode left;
+		TreeNode right;
 
+		TreeNode(int x) {
+			val = x;
+		}
+	}
+	
 	public List<List<Integer>> levelOrder(TreeNode root) {
 		List<List<Integer>> result = new ArrayList<>();
 		if (root == null)
@@ -45,7 +47,6 @@ public class LevelOrderBST {
 
 		Queue<TreeNode> queue = new LinkedList<>();
 		queue.add(root);
-
 		
 		while (!queue.isEmpty()) {
 			int size = queue.size();
@@ -77,11 +78,8 @@ public class LevelOrderBST {
 		 * 
 		 */
 		return result;
-		
 	}
 
 	public static void main(String[] args) {
-
 	}
-
 }

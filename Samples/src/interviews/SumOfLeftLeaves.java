@@ -12,18 +12,17 @@ package interviews;
  *
  */
 
-class TreeNode {
-	int val;
-	TreeNode left;
-	TreeNode right;
-
-	TreeNode(int x) {
-		val = x;
-	}
-}
-
 public class SumOfLeftLeaves {
+	
+	class TreeNode {
+		int val;
+		TreeNode left;
+		TreeNode right;
 
+		TreeNode(int x) {
+			val = x;
+		}
+	}
 	public int sumOfLeftLeaves(TreeNode root) {
 		if (root == null) return 0;
 		else if (root.left != null && root.left.left == null && root.left.right == null) {
